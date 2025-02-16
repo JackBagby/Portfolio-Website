@@ -10,12 +10,14 @@
 
     <!-- Header Section -->
     <header>
-        <h1>Welcome to Lord Bagby's Palace</h1>
-        <nav>
+        <img src="/Users/jackbagby/Stuff/Projects/Godot/Clicker/Assets/Player.png" id="Logo">
+        <h1>Jack Bagby</h1>
+        <button id="menuButton">☰</button> <!-- Menu Toggle Button -->
+        <nav id="navMenu">
             <ul>
-                <li><a href="https://www.google.com/">Home</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a shref="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -23,7 +25,8 @@
     <section>
         <h2>About This Website</h2>
         <p>This is the home page for all my future projects. Enjoy the sights</p>
-        <button>Click HERE</button>
+        <button id = "myButton">Click HERE</button>
+        <p id = "myMessage">You have clicked the button 0 times</p>
     </section>
 
     <!-- Footer -->
