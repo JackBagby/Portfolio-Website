@@ -12,6 +12,12 @@
     font-style: normal;
 }
 
+@keyframes neon-glow {
+    0% { text-shadow: 0 0 5px #fff, 0 0 10px #ff0000; }
+    50% { text-shadow: 0 0 10px #fff, 0 0 30px #ff0000; }
+    100% { text-shadow: 0 0 5px #fff, 0 0 10px #ff0000; }
+}
+
 /* Style the body */
 body {
     font-family: Arial, sans-serif;
@@ -43,7 +49,6 @@ header {
     text-decoration: none; /* Removes the underline */
     color: inherit; /* Keeps the original text color */
     gap: 10px; /* Adds spacing between the image and text */
-    
 }
 
 #Logo {
@@ -64,46 +69,50 @@ header {
 }
 
 header h1 {
-    display: block;
     font-family: Neon-font;
+    font-size: 48px;
     width: 200%;
     height: auto;
     white-space: nowrap;
     position: relative;
     margin-bottom: 10px;
     color: #fff;
-    animation: neon-glow 1.5s infinite alternate;
+    /*animation: neon-glow 1.5s infinite alternate;*/
+    background-clip: border-box;
+    background: linear-gradient(to right, #ff0000, #8b00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    
     /*text-shadow: 0 0 5px #fff, 
                  0 0 10px #ff0000, 
                  0 0 30px #0037ff;*/
 
 }
 
-@keyframes neon-glow {
-    0% { text-shadow: 0 0 5px #fff, 0 0 10px #ff0000; }
-    50% { text-shadow: 0 0 10px #fff, 0 0 20px #ff0000; }
-    100% { text-shadow: 0 0 5px #fff, 0 0 10px #ff0000; }
-}
 
 nav a {
     color: white;
     text-decoration: none;
     font-size: 18px;
-    animation: neon-glow 1.5s infinite alternate;
+    /*animation: neon-glow 1.5s infinite alternate;*/
 }
 
 /* Glowing duplicate text layer */
 
 header h1::before {
-    content: attr(data-text);  /* Directly insert text */
+    content: attr(data-text);  
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
-    color: #fff;
-    filter: blur(10px);  /* Adjust for stronger bloom */
-    opacity: 0.6;  /* Controls glow intensity */
-    z-index: -1;  /* Moves glow behind text */
+    background-clip: ;
+    background: linear-gradient(to right, #ff0000, #8b00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: blur(10px); /* Apply the glow effect */
+    opacity: 1; /* Adjust glow intensity */
+    z-index: -1;
 }
 
 /* Menu Icon */
