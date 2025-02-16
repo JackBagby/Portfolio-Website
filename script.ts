@@ -11,5 +11,5 @@ button?.addEventListener("click", function () {
     }
 });
 menuButton?.addEventListener("click", () => {
-    navMenu?.classList.toggle("active");
+    navMenu?.classList.toggle("menu-active");
 });

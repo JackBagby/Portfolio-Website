@@ -26,23 +26,85 @@ header {
     padding-top: 10px;
     padding-left: 10px;
 }
-
-nav {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 30px;
-    background: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
+/* Logo and my name */
+#Home_button {
+    display: flex; /* Aligns image and text in a row */
+    align-items: center; /* Centers them vertically */
+    text-decoration: none; /* Removes the underline */
+    color: inherit; /* Keeps the original text color */
+    gap: 10px; /* Adds spacing between the image and text */
+    
 }
 
-nav.active {
+#Logo {
+    position: relative;
     display: block;
+    bottom: 5px;
+    width: 48px;
+    height: auto;
+    flex-shrink: 0;
+
+    image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges;          /* Firefox                        */
+    image-rendering: -o-crisp-edges;            /* Opera                          */
+    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+    image-rendering: pixelated;                 /* Universal support since 2021   */
+    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+    -ms-interpolation-mode: nearest-neighbor;   /* IE8+    */
 }
 
 header h1 {
+    white-space: nowrap;
+    position: relative;
     margin-bottom: 10px;
+}
+
+/* Menu Icon */
+#menuButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    bottom: 10px;
+    width: 40px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Style the bars */
+.bar {
+    width: 100%;
+    height: 5px;
+    background-color: white; /* Adjust color */
+    transition: 0.3s ease-in-out;
+}
+
+/* When menu is active, animate bars into an "X" */
+.menu-active .bar:nth-child(1) {
+    transform: translateY(12.5px) rotate(45deg);
+}
+
+.menu-active .bar:nth-child(2) {
+    opacity: 0; /* Middle bar disappears */
+}
+
+.menu-active .bar:nth-child(3) {
+    transform: translateY(-12.5px) rotate(-45deg);
+}
+
+nav {
+    position: absolute;
+    top: 60px;
+    right: -250px;
+    background: #333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    transition: .5s ease-in-out;
+}
+
+.menu-active + nav {
+    right: 0;
 }
 
 /* Style the navigation menu */
@@ -57,24 +119,12 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #333;
+    color: white;
     text-decoration: none;
     font-weight: bold;
     font-size: large;
-    background-color: aliceblue;
     border-radius: .4;
 }
-#menuButton {
-    position: relative;
-    bottom: 6px;
-    right: 15px;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 40px;
-    cursor: pointer;
-}
-
 
 /* Main content section */
 section {
@@ -82,20 +132,13 @@ section {
     padding: 20px;
     margin: 20px auto;
     width: 80%;
+    height: auto;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 }
 
-#Logo {
-    width: 10%;
-    image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
-    image-rendering: -moz-crisp-edges;          /* Firefox                        */
-    image-rendering: -o-crisp-edges;            /* Opera                          */
-    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
-    image-rendering: pixelated;                 /* Universal support since 2021   */
-    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
-    -ms-interpolation-mode: nearest-neighbor;   /* IE8+    */
-}
+
+
 
 button {
     color: grey;

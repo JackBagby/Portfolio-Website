@@ -13,5 +13,5 @@ button === null || button === void 0 ? void 0 : button.addEventListener("click",
 });
 
 menuButton.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
+    menuButton.classList.toggle("menu-active");
 });
