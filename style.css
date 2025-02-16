@@ -5,6 +5,13 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'Neon-Font';
+    src: url('fonts/NeonSans.ttf') format('truetype'); /* For TTF fonts */
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Style the body */
 body {
     font-family: Arial, sans-serif;
@@ -57,9 +64,46 @@ header {
 }
 
 header h1 {
+    display: block;
+    font-family: Neon-font;
+    width: 200%;
+    height: auto;
     white-space: nowrap;
     position: relative;
     margin-bottom: 10px;
+    color: #fff;
+    animation: neon-glow 1.5s infinite alternate;
+    /*text-shadow: 0 0 5px #fff, 
+                 0 0 10px #ff0000, 
+                 0 0 30px #0037ff;*/
+
+}
+
+@keyframes neon-glow {
+    0% { text-shadow: 0 0 5px #fff, 0 0 10px #ff0000; }
+    50% { text-shadow: 0 0 10px #fff, 0 0 20px #ff0000; }
+    100% { text-shadow: 0 0 5px #fff, 0 0 10px #ff0000; }
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    animation: neon-glow 1.5s infinite alternate;
+}
+
+/* Glowing duplicate text layer */
+
+header h1::before {
+    content: attr(data-text);  /* Directly insert text */
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: #fff;
+    filter: blur(10px);  /* Adjust for stronger bloom */
+    opacity: 0.6;  /* Controls glow intensity */
+    z-index: -1;  /* Moves glow behind text */
 }
 
 /* Menu Icon */
@@ -70,7 +114,7 @@ header h1 {
     justify-content: space-between;
     bottom: 10px;
     right: 20px;
-    width: 40px;
+    width: 50px;
     height: 30px;
     background: none;
     border: none;
@@ -82,7 +126,19 @@ header h1 {
     width: 100%;
     height: 5px;
     background-color: white; /* Adjust color */
-    transition: 0.3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+.bar::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: #fff;
+    filter: blur(10px);  /* Adjust for stronger bloom */
+    opacity: 0.6;  /* Controls glow intensity */
+    z-index: -1;  /* Moves glow behind text */
 }
 
 /* When menu is active, animate bars into an "X" */
@@ -141,7 +197,17 @@ section {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 }
-
+section::before{
+    content: attr(data-text);  /* Directly insert text */
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: #fff;
+    filter: blur(10px);  /* Adjust for stronger bloom */
+    opacity: 0.6;  /* Controls glow intensity */
+    z-index: -1;  /* Moves glow behind text */
+}
 
 
 
