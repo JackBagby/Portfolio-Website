@@ -12,33 +12,13 @@ body {
     color: #333;
     text-align: center;
     padding: 0;
-    background-color: black;
 }
-
 
 /* Style the header */
 header {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
     background-color: #333;
     color: white;
-    padding-top: 10px;
-    padding-left: 10px;
-}
-
-nav {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 30px;
-    background: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-}
-
-nav.active {
-    display: block;
+    padding: 15px;
 }
 
 header h1 {
@@ -52,29 +32,15 @@ nav ul {
 }
 
 nav ul li {
-    display: block;
-    margin: 10px 30px;
+    display: inline;
+    margin: 0 15px;
 }
 
 nav ul li a {
-    color: #333;
+    color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: large;
-    background-color: aliceblue;
-    border-radius: .4;
 }
-#menuButton {
-    position: relative;
-    bottom: 6px;
-    right: 15px;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 40px;
-    cursor: pointer;
-}
-
 
 /* Main content section */
 section {
@@ -86,21 +52,9 @@ section {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 }
 
-#Logo {
-    width: 10%;
-    image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
-    image-rendering: -moz-crisp-edges;          /* Firefox                        */
-    image-rendering: -o-crisp-edges;            /* Opera                          */
-    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
-    image-rendering: pixelated;                 /* Universal support since 2021   */
-    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
-    -ms-interpolation-mode: nearest-neighbor;   /* IE8+    */
-}
-
 button {
     color: grey;
     font-size: large;
-    
 }
 /* Style the footer */
 footer {
