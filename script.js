@@ -16,3 +16,23 @@ menuButton.addEventListener("click", () => {
     menuButton.classList.toggle("menu-active");
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const particleContainer = document.getElementById('particle-container');
+    const particleCount = 100; // Adjust the number of particles
+
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Randomize initial position
+        particle.style.top = Math.random() * 200 + 'vh';
+        particle.style.left = Math.random() * 100 + 'vw';
+        
+        // Randomize animation duration and delay
+        particle.style.animationDuration = (Math.random() * 5 + 5) + 's';
+        particle.style.animationDelay = Math.random() * 10 + 's';
+        
+        particleContainer.appendChild(particle);
+    }
+});
+

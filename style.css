@@ -7,14 +7,14 @@
 
 @font-face {
     font-family: 'Neon-Font';
-    src: url('fonts/NeonSans.ttf') format('truetype'); /* For TTF fonts */
+    src: url('Fonts/NeonSans.ttf') format('truetype'); /* For TTF fonts */
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Regular-Font';
-    src: url('fonts/Blogger\ Sans-Italic.ttf') format('truetype'); /* For TTF fonts */
+    src: url('Fonts/Offside-Regular.ttf') format('truetype'); /* For TTF fonts */
     font-weight: normal;
     font-style: normal;
 }
@@ -53,10 +53,23 @@
     100% { filter: blur(4px) brightness(0); opacity: 0; }  /* Fully off */
 }
 
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(100vw);
+        opacity: 0.1;
+    }
+}
 
 /* Style the body */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Regular-font;
     background-color: #f4f4f4;
     color: #aaaaaa;
     text-align: center;
@@ -64,9 +77,9 @@ body {
     background-color: black;
 }
 
-
 /* Style the header */
 header {
+    font-family: 'Neon-Font';
     display: flex;
     position: fixed;
     top: 0px;
@@ -75,9 +88,9 @@ header {
     align-items: center;
     background-color: none;
     color: white;
-    padding-top: 10px;
-    padding-left: 10px;
+    padding: 10px;
     z-index: 100;
+    border: 1px solid white;
 }
 /* Logo and my name */
 #Home_button {
@@ -91,13 +104,10 @@ header {
 #Logo {
     position: relative;
     display: block;
-    bottom: 5px;
     width: 48px;
     height: auto;
     flex-shrink: 0;
-
     image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
-
     image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
     image-rendering: pixelated;                 /* Universal support since 2021   */
     image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
@@ -105,6 +115,7 @@ header {
 }
 
 header h1 {
+    font-size: 48px;
     position: relative;
     display: inline-block;
     background: linear-gradient(to right, #ff0000, #8b00ff);
@@ -157,14 +168,12 @@ nav a {
     position: relative;
     flex-direction: column;
     justify-content: space-between;
-    bottom: 10px;
     right: 20px;
     width: 50px;
     height: 30px;
     background: none;
     border: none;
     cursor: pointer;
-
 }
 
 /* Style the bars */
@@ -226,19 +235,20 @@ nav ul li a {
 
 /* Main content section */
 section {
-    font-family: "Regular-Font";
-    background: black;
+    background: none;
     padding: 20px;
     margin: 20px auto;
     width: 80%;
     height: auto;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
     position: relative; /* Ensure the text-shadow effect stays relative to this */
-    color: white; /* Ensure the text is visible */
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5); /* Bloom effect */
+    background: linear-gradient(to right, #ffff00, #00f2ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 5%;
+    line-height: 1.6;
 }
-
 
 section::before{
     content: attr(data-text);  /* Directly insert text */
@@ -251,6 +261,10 @@ section::before{
     z-index: -1;  /* Moves glow behind text */
 }
 
+.Header{
+    font-size: 48px;
+    font-weight: 900;
+}
 
 button {
     color: grey;
@@ -259,8 +273,30 @@ button {
 }
 /* Style the footer */
 footer {
-    margin-top: 40px;
+    margin-top: 100%;
     padding: 10px;
     background-color: #333;
     color: white;
+}
+
+#particle-container {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    pointer-events: none; /* Allow interactions with underlying elements */
+    overflow: hidden;
+    z-index: -1; /* Ensure particles are behind other content */
+}
+
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 2px white;
+    opacity: 0.8;
+    animation: float 10s infinite;
 }
