@@ -90,7 +90,6 @@ header {
     color: white;
     padding: 10px;
     z-index: 100;
-    border: 1px solid white;
 }
 /* Logo and my name */
 #Home_button {
@@ -234,43 +233,32 @@ nav ul li a {
 }
 
 /* Main content section */
-section {
-    background: none;
+.topic  {
+    position: relative;
     padding: 20px;
     margin: 20px auto;
     width: 80%;
     height: auto;
-    border-radius: 10px;
-    position: relative; /* Ensure the text-shadow effect stays relative to this */
-    background: linear-gradient(to right, #ffff00, #00f2ff);
+    line-height: 1.6;
+    color: transparent; /* Make the text color transparent */
+    background: linear-gradient(to right, #d4ff00, #00e5ff);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-top: 5%;
-    line-height: 1.6;
 }
 
-section::before{
-    content: attr(data-text);  /* Directly insert text */
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    filter: blur(10px);  /* Adjust for stronger bloom */
-    opacity: 0.6;  /* Controls glow intensity */
-    z-index: -1;  /* Moves glow behind text */
-}
-
-.Header{
+.topic h2{
     font-size: 48px;
-    font-weight: 900;
 }
+
+
 
 button {
-    color: grey;
+    background: none;
+    color: red;
     font-size: large;
-    
 }
+
 /* Style the footer */
 footer {
     margin-top: 100%;
@@ -296,7 +284,8 @@ footer {
     height: 3px;
     background: white;
     border-radius: 50%;
-    box-shadow: 0 0 10px 2px white;
+    box-shadow: 0 0 5px 1.5px white;
+    
     opacity: 0.8;
     animation: float 10s infinite;
 }
